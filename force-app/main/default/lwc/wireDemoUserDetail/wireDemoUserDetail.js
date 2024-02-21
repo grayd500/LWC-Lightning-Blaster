@@ -1,12 +1,14 @@
 import { LightningElement, wire } from 'lwc';
 import {getRecord} from 'lightning/uiRecordApi'
 import Id from '@salesforce/user/Id'
+import NAME_FIELD from '@salesforce/schema/User.Name'
+import EMAIL_FIELD from '@salesforce/schema/User.Email'
+const fields=[NAME_FIELD , EMAIL_FIELD]
 export default class WireDemoUserDetail extends LightningElement {
     userId = Id
 
-
-
-    @wire(getRecord, {recordId: '005ao000000bKSnAAM', fields:['User.Name', 'User.Email']})
+    userDetail
+    @wire(getRecord, {recordId: '$userId', fields})
     userDetailHandler({data, error}){
         if(data){
             this.userDetail = data.fields
@@ -15,7 +17,7 @@ export default class WireDemoUserDetail extends LightningElement {
             console.error(error)
         }
     }
-    @wire(getRecord, {recordId: '005ao000000bKSnAAM', fields:['User.Name', 'User.Email']})
+    @wire(getRecord, {recordId: '$userId', fields})
     userDetailProperty
 }
 
