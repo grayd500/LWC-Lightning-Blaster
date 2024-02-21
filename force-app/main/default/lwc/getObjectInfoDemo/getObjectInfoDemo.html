@@ -1,7 +1,10 @@
 <template>
     <lightning-card title="getObjectInfo Adapater">
         <div class="slds-p-around_medium">
-            
+            <template if:true={objectInfo.data}>
+                <div>defaultRecordTypeId: {objectInfo.data.defaultRecordTypeId}</div>
+                <div>Object API Name: {objectInfo.data.apiName}</div>
+            </template>
         </div>
     </lightning-card>
 </template>
