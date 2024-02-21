@@ -29,6 +29,14 @@ export default class RecordEditCustom extends LightningElement {
             variant: "success"
         });
         this.dispatchEvent(toastEvent);
+    }
+    handleError(event){
+        const toastEvent = new ShowToastEvent({
+            title: "Error creating Account",
+            message: event.detail.message,
+            variant: "error"
+        });
+        this.dispatchEvent(toastEvent);
+    }
         
     }
-}
