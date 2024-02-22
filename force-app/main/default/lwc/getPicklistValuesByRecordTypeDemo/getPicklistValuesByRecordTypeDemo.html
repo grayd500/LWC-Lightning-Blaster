@@ -1,5 +1,32 @@
 <template>
-    <div class="slds-var-p-around_medium">
-        data will come here
-    </div>
+    <lightning-card>
+        <div slot="title">
+            <a href="https://www.udemy.com/course/zero-to-hero-in-lightning-web-components/learn/lecture/24155632#questions" target="_blank">
+                getPicklistValuesByRecordType Adapter
+            </a>
+        </div>
+        <div class="slds-var-p-around_medium">
+            <template if:true={ratingOptions}>
+                <lightning-combobox
+                    name="rating"
+                    label="Rating"
+                    value={selectedRating}
+                    placeholder="Select Rating"
+                    options={ratingOptions}
+                    onchange={handleChange}></lightning-combobox>
+                <p>Selected Rating: {selectedRating}</p>
+            </template>
+
+            <template if:true={industryOptions}>
+                <lightning-combobox
+                    name="industry"
+                    label="Industry"
+                    value={selectedIndustry}
+                    placeholder="Select Industry"
+                    options={industryOptions}
+                    onchange={handleChange}></lightning-combobox>
+                <p>Selected Industry: {selectedIndustry}</p>
+            </template>
+        </div>
+    </lightning-card>
 </template>
